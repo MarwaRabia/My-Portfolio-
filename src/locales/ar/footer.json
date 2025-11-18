@@ -1,0 +1,22 @@
+{
+  "copyright": "© {year} مروة ربيع. جميع الحقوق محفوظة.",
+  "tagline": "بُنيت بـ ❤️ و React",
+  "quickLinks": {
+    "title": "روابط سريعة",
+    "home": "الرئيسية",
+    "about": "من أنا",
+    "projects": "المشاريع",
+    "skills": "المهارات",
+    "contact": "تواصل معي"
+  },
+  "social": {
+    "title": "تابعني",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "البريد الإلكتروني"
+  },
+  "contact": {
+    "title": "تواصل معي",
+    "description": "هل لديك مشروع أو فكرة؟ لنتحدث!"
+  }
+}

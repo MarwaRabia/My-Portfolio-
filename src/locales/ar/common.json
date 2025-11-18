@@ -1,0 +1,17 @@
+{
+  "loading": "جاري التحميل...",
+  "error": "حدث خطأ ما",
+  "retry": "حاول مرة أخرى",
+  "save": "حفظ",
+  "cancel": "إلغاء",
+  "submit": "إرسال",
+  "close": "إغلاق",
+  "next": "التالي",
+  "previous": "السابق",
+  "viewMore": "عرض المزيد",
+  "viewLess": "عرض أقل",
+  "readMore": "اقرأ المزيد",
+  "learnMore": "تعلم المزيد",
+  "comingSoon": "قريباً",
+  "underConstruction": "تحت الإنشاء"
+}

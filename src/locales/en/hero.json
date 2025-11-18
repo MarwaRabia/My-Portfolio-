@@ -1,0 +1,25 @@
+{
+  "greeting": "Hi, I'm",
+  "name": "Marwa Rabia",
+  "roles": {
+    "frontend": "Frontend Developer",
+    "react": "React Specialist",
+    "uiux": "UI/UX Enthusiast",
+    "problem": "Problem Solver",
+    "creative": "Creative Coder"
+  },
+  "description": "I transform ideas into amazing interactive experiences using React & TypeScript.",
+  "descriptionAlt": "Specialized in building modern and responsive user interfaces.",
+  "cta": {
+    "viewWork": "View My Work",
+    "contact": "Contact Me",
+    "downloadCV": "Download CV"
+  },
+  "scroll": "Scroll Down",
+  "socialLinks": {
+    "github": "Visit my GitHub",
+    "linkedin": "Connect on LinkedIn",
+    "twitter": "Follow me on Twitter",
+    "email": "Send me an email"
+  }
+}

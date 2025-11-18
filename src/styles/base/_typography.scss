@@ -1,0 +1,203 @@
+// src/styles/base/_typography.scss
+@import "../abstracts/variables";
+
+// ============================================
+// Typography Base Styles
+// ============================================
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $text-dark;
+}
+
+// ============================================
+// Headings
+// ============================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $text-dark;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-extrabold;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-4xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-4xl;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-3xl;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-2xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-2xl;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-xl;
+  }
+}
+
+h5 {
+  font-size: $font-size-xl;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+  }
+}
+
+h6 {
+  font-size: $font-size-lg;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-base;
+  }
+}
+
+// ============================================
+// Paragraphs
+// ============================================
+
+p {
+  margin-bottom: 1rem;
+  line-height: $line-height-relaxed;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ============================================
+// Text Utilities
+// ============================================
+
+.text-small {
+  font-size: $font-size-sm;
+}
+
+.text-large {
+  font-size: $font-size-lg;
+}
+
+.text-bold {
+  font-weight: $font-weight-bold;
+}
+
+.text-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.text-light {
+  font-weight: $font-weight-light;
+}
+
+.text-muted {
+  color: $text-dark-muted;
+}
+
+.text-secondary {
+  color: $text-dark-secondary;
+}
+
+// ============================================
+// Code & Pre
+// ============================================
+
+code,
+pre {
+  font-family: $font-mono;
+  font-size: 0.9em;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  color: $primary-light;
+}
+
+pre {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow-x: auto;
+
+  code {
+    padding: 0;
+    background: none;
+  }
+}
+
+// ============================================
+// Links
+// ============================================
+
+a {
+  color: $primary-color;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $primary-light;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// Blockquotes
+// ============================================
+
+blockquote {
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-left: 4px solid $primary-color;
+  background: rgba(255, 255, 255, 0.05);
+  font-style: italic;
+
+  p {
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ============================================
+// RTL Support
+// ============================================
+
+[dir="rtl"] {
+  blockquote {
+    border-left: none;
+    border-right: 4px solid $primary-color;
+  }
+}

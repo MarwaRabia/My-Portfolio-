@@ -1,0 +1,300 @@
+// src/components/sections/Projects/ProjectCard.module.scss
+@import "../../../styles/abstracts/variables";
+@import "../../../styles/abstracts/mixins";
+
+.projectCard {
+  @include card;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba($primary-color, 0.5);
+  }
+
+  // ============================================
+  // Badge
+  // ============================================
+
+  &__badge {
+    position: absolute;
+    top: $spacing-md;
+    right: $spacing-md;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-xs $spacing-sm;
+    background: $gradient-primary;
+    color: white;
+    border-radius: $radius-full;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    box-shadow: $shadow-md;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    [dir="rtl"] & {
+      right: auto;
+      left: $spacing-md;
+    }
+  }
+
+  // ============================================
+  // Image
+  // ============================================
+
+  &__image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: $bg-dark;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition-slow;
+    }
+
+    &:hover img {
+      transform: scale(1.1);
+    }
+
+    &:hover .projectCard__overlay {
+      opacity: 1;
+    }
+  }
+
+  &__overlay {
+    @include absolute-cover;
+    @include flex-center;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    transition: opacity $transition-base;
+    z-index: 5;
+  }
+
+  &__links {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-sm $spacing-lg;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: $radius-full;
+    color: white;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    transition: all $transition-base;
+
+    &:hover {
+      background: $gradient-primary;
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: $shadow-primary;
+    }
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+
+  // ============================================
+  // Content
+  // ============================================
+
+  &__content {
+    padding: $spacing-xl;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    flex: 1;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-dark;
+    margin: 0;
+    line-height: $line-height-tight;
+    flex: 1;
+  }
+
+  &__year {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $text-dark-muted;
+    background: rgba(255, 255, 255, 0.05);
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $radius-sm;
+    flex-shrink: 0;
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $text-dark-muted;
+    margin: 0;
+    flex: 1;
+    //     @include text-clamp(4);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // ============================================
+  // Technologies
+  // ============================================
+
+  &__technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+  }
+
+  &__tech {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $primary-color;
+    background: rgba($primary-color, 0.1);
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $radius-sm;
+    border: 1px solid rgba($primary-color, 0.2);
+    transition: all $transition-base;
+
+    &:hover {
+      background: rgba($primary-color, 0.2);
+      border-color: rgba($primary-color, 0.4);
+    }
+  }
+
+  // ============================================
+  // Action Buttons (Always Visible)
+  // ============================================
+
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+    margin-top: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-xs;
+    padding: $spacing-sm $spacing-md;
+    flex: 1;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    border-radius: $radius-md;
+    transition: all $transition-base;
+    border: 1px solid;
+
+    svg {
+      flex-shrink: 0;
+      transition: transform $transition-base;
+    }
+
+    &--primary {
+      background: $gradient-primary;
+      color: white;
+      border-color: transparent;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-primary;
+
+        svg {
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: $text-dark-secondary;
+      border-color: rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba($primary-color, 0.5);
+        color: $primary-color;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // ============================================
+  // Responsive
+  // ============================================
+
+  @include respond-below($breakpoint-md) {
+    &__image {
+      height: 200px;
+    }
+
+    &__content {
+      padding: $spacing-lg;
+      gap: $spacing-sm;
+    }
+
+    &__title {
+      font-size: $font-size-lg;
+    }
+
+    &__description {
+      font-size: $font-size-sm;
+    }
+
+    &__links {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+
+    &__link {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &__actions {
+      flex-direction: column;
+      gap: $spacing-xs;
+    }
+
+    &__button {
+      padding: $spacing-sm;
+      font-size: $font-size-xs;
+    }
+  }
+}

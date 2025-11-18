@@ -1,0 +1,51 @@
+{
+  "title": "Projects",
+  "subtitle": "Things I've built",
+  "description": "Here are some of my recent projects that showcase my skills and experience",
+  "filters": {
+    "all": "All Projects",
+    "fullstack": "Full Stack",
+    "react": "React",
+    "frontend": "Frontend",
+    "htmlCss": "HTML/CSS"
+  },
+  "buttons": {
+    "viewLive": "View Live",
+    "viewCode": "View Code",
+    "viewDetails": "View Details",
+    "viewAll": "View All Projects"
+  },
+  "labels": {
+    "featured": "Featured",
+    "new": "New",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "technologies": "Technologies",
+    "year": "Year",
+    "status": "Status"
+  },
+  "empty": {
+    "title": "No Projects Found",
+    "description": "Try selecting a different filter"
+  },
+  "taskManagement": {
+    "title": "Task Management System",
+    "description": "Full-stack team collaboration app with project and task management, real-time SignalR notifications, file attachments, and interactive analytics dashboard."
+  },
+  "techbooksStore": {
+    "title": "TechBooks Store",
+    "description": "Modern bookstore built with React featuring Google Books API search, shopping cart, Google OAuth authentication, and smooth responsive animations."
+  },
+  "quizme": {
+    "title": "QuizMe - Islamic Knowledge Challenge",
+    "description": "Interactive Arabic quiz app about Quran, Prophets, and Companions with flip cards, four categories, and beautiful RTL animations."
+  },
+  "htmlTemplate03": {
+    "title": "Modern Responsive Landing Page",
+    "description": "Fully responsive landing page with CSS Grid and Flexbox, featuring animated sections, testimonials, services, and skills showcase."
+  },
+  "casperTemplate": {
+    "title": "Casper Creative Template",
+    "description": "Pixel-perfect HTML/CSS template with clean modern UI, cross-browser compatibility, and lightweight optimized code."
+  }
+}

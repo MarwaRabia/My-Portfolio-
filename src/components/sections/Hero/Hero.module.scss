@@ -1,0 +1,395 @@
+// src/components/sections/Hero/Hero.module.scss
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  @include flex-center;
+  overflow: hidden;
+  background: $bg-dark;
+  color: $text-dark;
+
+  // ============================================
+  // Background
+  // ============================================
+  
+  &__background {
+    @include absolute-cover;
+    z-index: 0;
+  }
+
+  &__gradient {
+    @include absolute-cover;
+    background: $gradient-animated;
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    opacity: 0.15;
+  }
+
+  &__particles {
+    @include absolute-cover;
+  }
+
+  .particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: $radius-full;
+    pointer-events: none;
+    animation: float linear infinite;
+  }
+
+  // ============================================
+  // Content
+  // ============================================
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    max-width: $container-max-width;
+    padding: $spacing-xl;
+    text-align: center;
+  }
+
+  &__text {
+    @include flex-column-center;
+    gap: $spacing-md;
+  }
+
+  &__greeting {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    color: $text-dark-muted;
+    @include fade-in-down(0.6s, 0s);
+  }
+
+  &__name {
+    @include heading-style(clamp(2.5rem, 8vw, 5rem), $font-weight-extrabold);
+    margin: 0;
+    @include fade-in-up(0.8s, 0.2s);
+
+    &-highlight {
+      @include text-gradient;
+      position: relative;
+    }
+  }
+
+  &__role {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: $font-weight-semibold;
+    min-height: 3rem;
+    color: $text-dark-secondary;
+    @include fade-in-up(0.8s, 0.4s);
+
+    &-text {
+      color: $text-dark-muted;
+    }
+  }
+
+  &__cursor {
+    color: $primary-color;
+    animation: blink 1s infinite;
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+    color: $text-dark-muted;
+    max-width: 700px;
+    margin: $spacing-md 0;
+    @include fade-in-up(0.8s, 0.6s);
+  }
+
+  // ============================================
+  // CTA Buttons
+  // ============================================
+
+  &__cta {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: $spacing-xl 0;
+    @include fade-in-up(0.8s, 0.8s);
+  }
+
+  .btn {
+    @include button-base;
+
+    &::before {
+      content: '';
+      @include absolute-cover;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0)
+      );
+      transform: translateX(-100%);
+      transition: transform $transition-base;
+    }
+
+    &:hover::before {
+      transform: translateX(0);
+    }
+
+    svg {
+      transition: transform $transition-base;
+    }
+
+    &--primary {
+      @include button-primary;
+
+      &:hover svg {
+        transform: translateY(3px);
+      }
+    }
+
+    &--secondary {
+      @include button-secondary;
+
+      &:hover svg {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  // ============================================
+  // Social Links
+  // ============================================
+
+  &__social {
+    display: flex;
+    gap: $spacing-lg;
+    justify-content: center;
+    @include fade-in-up(0.8s, 1s);
+
+    &-link {
+      @include flex-center;
+      width: 48px;
+      height: 48px;
+      border-radius: $radius-full;
+      background: rgba(255, 255, 255, 0.05);
+      color: $text-dark-muted;
+      transition: all $transition-base;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        background: $gradient-primary;
+        color: $text-dark;
+        transform: translateY(-5px);
+        box-shadow: $shadow-primary;
+      }
+    }
+  }
+
+  // ============================================
+  // Scroll Indicator
+  // ============================================
+
+  &__scroll {
+    position: absolute;
+    bottom: $spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    cursor: pointer;
+    @include fade-in-up(0.8s, 1.2s);
+
+    &-indicator {
+      width: 30px;
+      height: 50px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      margin: 0 auto $spacing-sm;
+      @include flex-center;
+      padding-top: 8px;
+    }
+
+    &-wheel {
+      width: 4px;
+      height: 10px;
+      background: $primary-color;
+      border-radius: 2px;
+      animation: scroll 2s ease-in-out infinite;
+    }
+
+    &-text {
+      font-size: $font-size-sm;
+      color: $text-dark-muted;
+      margin: 0;
+    }
+  }
+
+  // ============================================
+  // Decorative Elements
+  // ============================================
+
+  &__decoration {
+    position: absolute;
+    border-radius: $radius-full;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+
+    &--1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(
+        circle,
+        rgba($primary-color, 0.3) 0%,
+        transparent 70%
+      );
+      top: -10%;
+      right: -10%;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    &--2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(
+        circle,
+        rgba($secondary-color, 0.3) 0%,
+        transparent 70%
+      );
+      bottom: -10%;
+      left: -10%;
+      animation: float 25s ease-in-out infinite reverse;
+    }
+  }
+
+  // ============================================
+  // Animations
+  // ============================================
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(10px, 10px);
+    }
+    50% {
+      transform: translate(-10px, 20px);
+    }
+    75% {
+      transform: translate(20px, -10px);
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // ============================================
+  // Responsive
+  // ============================================
+
+  @include respond-below($breakpoint-md) {
+    &__content {
+      padding: $spacing-md;
+    }
+
+    &__description {
+      font-size: $font-size-base;
+    }
+
+    &__cta {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    &__scroll {
+      bottom: $spacing-md;
+    }
+
+    &__social {
+      gap: $spacing-md;
+
+      &-link {
+        width: 40px;
+        height: 40px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    &__decoration {
+      &--1,
+      &--2 {
+        width: 300px;
+        height: 300px;
+      }
+    }
+  }
+
+  // RTL Support
+  [dir='rtl'] & {
+    .btn--secondary:hover svg {
+      transform: translateX(-5px);
+    }
+  }
+}

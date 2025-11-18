@@ -1,0 +1,336 @@
+// src/styles/abstracts/_mixins.scss
+
+@import './variables';
+
+// ============================================
+// Responsive Breakpoints
+// ============================================
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  @media (max-width: #{$breakpoint - 1}) {
+    @content;
+  }
+}
+
+// Usage:
+// .element {
+//   @include respond-to($breakpoint-md) {
+//     // styles for tablets and up
+//   }
+// }
+
+// ============================================
+// Flexbox Utilities
+// ============================================
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// ============================================
+// Typography
+// ============================================
+
+@mixin heading-style($size: $font-size-2xl, $weight: $font-weight-bold) {
+  font-family: $font-heading;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height-tight;
+}
+
+@mixin text-gradient($gradient: $gradient-primary) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ============================================
+// Positioning
+// ============================================
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin fixed-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// ============================================
+// Spacing
+// ============================================
+
+@mixin container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+@mixin section-padding {
+  padding: $spacing-4xl $spacing-lg;
+
+  @include respond-below($breakpoint-md) {
+    padding: $spacing-3xl $spacing-md;
+  }
+}
+
+// ============================================
+// Buttons
+// ============================================
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-full;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $gradient-primary;
+  color: $text-dark;
+  box-shadow: $shadow-primary;
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: $shadow-primary-lg;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(-1px);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: transparent;
+  color: $text-dark;
+  border: 2px solid $primary-color;
+  
+  &:hover:not(:disabled) {
+    background: rgba($primary-color, 0.1);
+    transform: translateY(-3px);
+  }
+}
+
+// ============================================
+// Cards
+// ============================================
+
+@mixin card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all $transition-base;
+}
+
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-xl;
+    border-color: rgba($primary-color, 0.3);
+  }
+}
+
+// ============================================
+// Animations
+// ============================================
+
+@mixin fade-in($duration: $transition-base, $delay: 0s) {
+  animation: fadeIn $duration ease $delay both;
+}
+
+@mixin fade-in-up($duration: $transition-base, $delay: 0s) {
+  animation: fadeInUp $duration ease $delay both;
+}
+
+@mixin fade-in-down($duration: $transition-base, $delay: 0s) {
+  animation: fadeInDown $duration ease $delay both;
+}
+
+@mixin slide-in-left($duration: $transition-base, $delay: 0s) {
+  animation: slideInLeft $duration ease $delay both;
+}
+
+@mixin slide-in-right($duration: $transition-base, $delay: 0s) {
+  animation: slideInRight $duration ease $delay both;
+}
+
+// ============================================
+// Scroll Animations
+// ============================================
+
+@mixin scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// Pseudo Elements
+// ============================================
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin shimmer-effect {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    @include pseudo;
+    @include absolute-cover;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover::before {
+    transform: translateX(100%);
+  }
+}
+
+// ============================================
+// Glassmorphism
+// ============================================
+
+@mixin glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@mixin glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// ============================================
+// Scrollbar Styling
+// ============================================
+
+@mixin custom-scrollbar(
+  $width: 8px,
+  $track-color: rgba(255, 255, 255, 0.1),
+  $thumb-color: $primary-color
+) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $radius-full;
+    
+    &:hover {
+      background: lighten($thumb-color, 10%);
+    }
+  }
+}
+
+// ============================================
+// Aspect Ratio
+// ============================================
+
+@mixin aspect-ratio($width: 16, $height: 9) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: percentage($height / $width);
+  }
+  
+  > * {
+    @include absolute-cover;
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "title": "About Me",
+  "subtitle": "Get to know me better",
+  "intro": "Hi! I'm a passionate Frontend Developer",
+  "paragraphs": {
+    "p1": "I'm a passionate frontend developer with a love for creating beautiful and functional web experiences. With expertise in React, TypeScript, and modern web technologies, I bring ideas to life through clean code and intuitive design.",
+    "p2": "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community.",
+    "p3": "I believe in writing clean, maintainable code and staying up-to-date with the latest industry trends and best practices."
+  },
+  "cta": {
+    "viewWork": "View My Work",
+    "contact": "Contact Me",
+    "downloadCV": "Download CV"
+  },
+  "stats": {
+    "experience": {
+      "value": "2+",
+      "label": "Years Experience"
+    },
+    "projects": {
+      "value": "20+",
+      "label": "Projects Completed"
+    },
+    "clients": {
+      "value": "10+",
+      "label": "Happy Clients"
+    },
+    "coffee": {
+      "value": "∞",
+      "label": "Cups of Coffee"
+    }
+  },
+  "interests": {
+    "title": "What I Do",
+
+    "webDev": {
+      "title": "Web Development",
+      "description": "Building responsive and performant web applications"
+    },
+    "uiDesign": {
+      "title": "UI/UX Design",
+      "description": "Creating intuitive and beautiful user interfaces"
+    },
+    "problemSolving": {
+      "title": "Problem Solving",
+      "description": "Finding elegant solutions to complex challenges"
+    },
+    "learning": {
+      "title": "Continuous Learning",
+      "description": "Always exploring new technologies and techniques"
+    }
+  }
+}

@@ -1,0 +1,379 @@
+// src/components/sections/About/About.module.scss
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.about {
+  @include section-padding;
+  background: $bg-dark;
+  position: relative;
+  overflow: hidden;
+
+  // Background decoration
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba($primary-color, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+  }
+
+  &__container {
+    @include container;
+    position: relative;
+    z-index: 1;
+  }
+
+  // ============================================
+  // Header
+  // ============================================
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: $spacing-sm;
+    @include fade-in-down(0.6s, 0s);
+  }
+
+  &__title {
+    @include heading-style($font-size-4xl, $font-weight-extrabold);
+    @include text-gradient;
+    margin: 0;
+    @include fade-in-up(0.6s, 0.2s);
+  }
+
+  // ============================================
+  // Content (Image + Text)
+  // ============================================
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: $spacing-4xl;
+    align-items: center;
+    margin-bottom: $spacing-5xl;
+
+    @include respond-below($breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $spacing-3xl;
+    }
+  }
+
+  // Image
+  &__imageWrapper {
+    @include fade-in-up(0.8s, 0.4s);
+  }
+
+  &__imageContainer {
+    position: relative;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    aspect-ratio: 1;
+    max-width: 400px;
+    margin: 0 auto;
+
+    &:hover &__image {
+      transform: scale(1.05);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform $transition-slow;
+  }
+
+  &__imageBg {
+    position: absolute;
+    inset: -10px;
+    background: $gradient-primary;
+    border-radius: $radius-xl;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0.5;
+  }
+
+  // Text
+  &__text {
+    @include fade-in-up(0.8s, 0.6s);
+  }
+
+  &__intro {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $text-dark-secondary;
+    margin-bottom: $spacing-lg;
+    line-height: $line-height-tight;
+  }
+
+  &__paragraph {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $text-dark-muted;
+    margin-bottom: $spacing-md;
+
+    &:last-of-type {
+      margin-bottom: $spacing-xl;
+    }
+  }
+
+  // CTA Buttons
+  &__cta {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    @include button-base;
+
+    &--primary {
+      @include button-primary;
+    }
+
+    &--secondary {
+      @include button-secondary;
+    }
+  }
+
+  // ============================================
+  // Stats
+  // ============================================
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+    margin-bottom: $spacing-5xl;
+    @include fade-in-up(0.8s, 0.8s);
+
+    @include respond-below($breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .stat {
+    @include card;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-xl;
+    transition: all $transition-base;
+
+    &:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba($primary-color, 0.3);
+    }
+
+    &__icon {
+      @include flex-center;
+      width: 60px;
+      height: 60px;
+      background: $gradient-primary;
+      border-radius: $radius-md;
+      flex-shrink: 0;
+
+      svg {
+        width: 28px;
+        height: 28px;
+        color: white;
+      }
+    }
+
+    &__content {
+      flex: 1;
+    }
+
+    &__value {
+      font-size: $font-size-3xl;
+      font-weight: $font-weight-extrabold;
+      color: $text-dark;
+      margin: 0 0 $spacing-xs;
+      line-height: 1;
+    }
+
+    &__label {
+      font-size: $font-size-sm;
+      color: $text-dark-muted;
+      margin: 0;
+      line-height: 1;
+    }
+  }
+
+  // ============================================
+  // Interests (What I Do)
+  // ============================================
+
+  &__interests {
+    @include fade-in-up(0.8s, 1s);
+  }
+
+  &__interestsTitle {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+    color: $text-dark;
+  }
+
+  &__interestsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-xl;
+  }
+
+  .interestCard {
+    @include card;
+    padding: $spacing-2xl;
+    text-align: center;
+    transition: all $transition-base;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--card-color);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform $transition-base;
+    }
+
+    &:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--card-color);
+
+      &::before {
+        transform: scaleX(1);
+      }
+
+      .interestCard__icon {
+        background: var(--card-color);
+        transform: scale(1.1) rotateY(360deg);
+      }
+    }
+
+    &__icon {
+      @include flex-center;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto $spacing-lg;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: $radius-lg;
+      transition: all $transition-slow;
+
+      svg {
+        width: 36px;
+        height: 36px;
+        color: var(--card-color);
+        transition: color $transition-base;
+      }
+    }
+
+    &:hover &__icon svg {
+      color: white;
+    }
+
+    &__title {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $text-dark;
+      margin-bottom: $spacing-md;
+    }
+
+    &__description {
+      font-size: $font-size-base;
+      line-height: $line-height-relaxed;
+      color: $text-dark-muted;
+      margin: 0;
+    }
+  }
+
+  // ============================================
+  // Responsive
+  // ============================================
+
+  @include respond-below($breakpoint-md) {
+    &__header {
+      margin-bottom: $spacing-3xl;
+    }
+
+    &__title {
+      font-size: $font-size-3xl;
+    }
+
+    &__intro {
+      font-size: $font-size-xl;
+    }
+
+    &__cta {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    .stat {
+      padding: $spacing-lg;
+
+      &__icon {
+        width: 50px;
+        height: 50px;
+
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      &__value {
+        font-size: $font-size-2xl;
+      }
+    }
+
+    &__interestsTitle {
+      font-size: $font-size-2xl;
+      margin-bottom: $spacing-2xl;
+    }
+
+    &__interestsGrid {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+
+    .interestCard {
+      padding: $spacing-xl;
+
+      &__icon {
+        width: 60px;
+        height: 60px;
+
+        svg {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+  }
+}

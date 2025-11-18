@@ -1,0 +1,17 @@
+{
+  "loading": "Loading...",
+  "error": "Something went wrong",
+  "retry": "Try again",
+  "save": "Save",
+  "cancel": "Cancel",
+  "submit": "Submit",
+  "close": "Close",
+  "next": "Next",
+  "previous": "Previous",
+  "viewMore": "View More",
+  "viewLess": "View Less",
+  "readMore": "Read More",
+  "learnMore": "Learn More",
+  "comingSoon": "Coming Soon",
+  "underConstruction": "Under Construction"
+}
