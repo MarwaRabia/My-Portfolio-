@@ -1,6 +1,6 @@
 {
-  "copyright": "© {year} مروة ربيع. جميع الحقوق محفوظة.",
-  "tagline": "بُنيت بـ ❤️ و React",
+  "copyright": "© {{year}} Marwa Rabia. جميع الحقوق محفوظة.",
+  "tagline": "بُنيت بـ  React",
   "quickLinks": {
     "title": "روابط سريعة",
     "home": "الرئيسية",

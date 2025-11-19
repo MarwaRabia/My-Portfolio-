@@ -42,20 +42,22 @@
 
 // export default LanguageSwitcher;
 
-
 // src/components/common/LanguageSwitcher/LanguageSwitcher.tsx
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import styles from './LanguageSwitcher.module.scss';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import styles from "./LanguageSwitcher.module.scss";
 
 const LanguageSwitcher: React.FC = () => {
   const { i18n } = useTranslation();
 
   const toggleLanguage = () => {
-    const newLang = i18n.language === 'en' ? 'ar' : 'en';
+    const newLang = i18n.language === "en" ? "ar" : "en";
     i18n.changeLanguage(newLang);
-    document.documentElement.setAttribute('lang', newLang);
-    document.documentElement.setAttribute('dir', newLang === 'ar' ? 'rtl' : 'ltr');
+    document.documentElement.setAttribute("lang", newLang);
+    document.documentElement.setAttribute(
+      "dir",
+      newLang === "ar" ? "rtl" : "ltr"
+    );
   };
 
   return (
@@ -63,10 +65,12 @@ const LanguageSwitcher: React.FC = () => {
       className={styles.languageSwitcher}
       onClick={toggleLanguage}
       aria-label="Toggle Language"
-      title={i18n.language === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية'}
+      title={
+        i18n.language === "en" ? "Switch to Arabic" : "التبديل إلى الإنجليزية"
+      }
     >
       <span className={styles.languageSwitcher__text}>
-        {i18n.language === 'en' ? 'AR' : 'EN'}
+        {i18n.language === "en" ? "AR" : "EN"}
       </span>
       <svg
         className={styles.languageSwitcher__icon}

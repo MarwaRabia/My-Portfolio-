@@ -26,18 +26,14 @@ const Hero: React.FC = () => {
 
   // Smooth scroll handler
   const handleScrollToProjects = (href: string) => {
-     const element = document.querySelector(href);
+    const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
- 
-
-
-
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} id="home">
       {/* Animated Background */}
       <div className={styles.hero__background}>
         <div className={styles.hero__gradient}></div>
@@ -88,9 +84,9 @@ const Hero: React.FC = () => {
             <button
               className={`${styles.btn} ${styles["btn--primary"]}`}
               onClick={(e) => {
-                  e.preventDefault();
-                  handleScrollToProjects("#projects");
-                }}
+                e.preventDefault();
+                handleScrollToProjects("#projects");
+              }}
             >
               <span>{t("cta.viewWork")}</span>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -108,7 +104,6 @@ const Hero: React.FC = () => {
                 />
               </svg>
             </button>
-
           </div>
 
           {/* Social Links */}
@@ -128,7 +123,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };

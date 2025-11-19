@@ -16,55 +16,55 @@ export interface SocialLink {
 
 export const contactInfo: ContactInfo[] = [
   {
-    icon: 'email',
-    label: 'email',
-    value: 'your.email@example.com',
-    link: 'mailto:your.email@example.com',
+    icon: "email",
+    label: "email",
+    value: "marwarabia369@gmail.com",
+    link: "mailto:marwarabia369@gmail.com",
   },
   {
-    icon: 'location',
-    label: 'location',
-    value: 'Cairo, Egypt',
+    icon: "location",
+    label: "location",
+    value: "Cairo, Egypt",
   },
   {
-    icon: 'phone',
-    label: 'phone',
-    value: '+20 123 456 7890',
-    link: 'tel:+201234567890',
+    icon: "phone",
+    label: "phone",
+    value: "+20 112 103 5855",
+    link: "tel:+201121035855",
   },
 ];
 
 export const socialLinks: SocialLink[] = [
   {
-    name: 'GitHub',
-    icon: 'github',
-    url: 'https://github.com/yourusername',
-    color: '#333333',
+    name: "GitHub",
+    icon: "github",
+    url: "https://github.com/MarwaRabia",
+    color: "#333333",
   },
   {
-    name: 'LinkedIn',
-    icon: 'linkedin',
-    url: 'https://linkedin.com/in/yourusername',
-    color: '#0077B5',
+    name: "LinkedIn",
+    icon: "linkedin",
+    url: "https://www.linkedin.com/in/marwarabia/",
+    color: "#0077B5",
   },
   {
-    name: 'Twitter',
-    icon: 'twitter',
-    url: 'https://twitter.com/yourusername',
-    color: '#1DA1F2',
+    name: "Twitter",
+    icon: "twitter",
+    url: "",
+    color: "#1DA1F2",
   },
-  {
-    name: 'Facebook',
-    icon: 'facebook',
-    url: 'https://facebook.com/yourusername',
-    color: '#1877F2',
-  },
-  {
-    name: 'Instagram',
-    icon: 'instagram',
-    url: 'https://instagram.com/yourusername',
-    color: '#E4405F',
-  },
+  // {
+  //   name: 'Facebook',
+  //   icon: 'facebook',
+  //   url: 'https://facebook.com/yourusername',
+  //   color: '#1877F2',
+  // },
+  // {
+  //   name: 'Instagram',
+  //   icon: 'instagram',
+  //   url: 'https://instagram.com/yourusername',
+  //   color: '#E4405F',
+  // },
 ];
 
 export const getSocialLinks = (): SocialLink[] => socialLinks;

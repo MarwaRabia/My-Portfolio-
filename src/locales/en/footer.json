@@ -1,6 +1,6 @@
 {
-  "copyright": "© {year} Marwa Rabia. All rights reserved.",
-  "tagline": "Built with ❤️ and React",
+  "copyright": "© {{year}} Marwa Rabia. All rights reserved.",
+  "tagline": "Built with  React",
   "quickLinks": {
     "title": "Quick Links",
     "home": "Home",

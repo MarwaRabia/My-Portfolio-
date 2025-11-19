@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // src/components/sections/Contact/ContactForm.tsx
-import React, { useState, type FormEvent } from 'react';
-import { useTranslation } from 'react-i18next';
-import styles from './Contact.module.scss';
+import React, { useState, type FormEvent } from "react";
+import { useTranslation } from "react-i18next";
+import styles from "./Contact.module.scss";
+import emailjs from "@emailjs/browser";
 
 interface FormData {
   name: string;
@@ -18,16 +20,18 @@ interface FormErrors {
 }
 
 const ContactForm: React.FC = () => {
-  const { t } = useTranslation('contact');
+  const { t } = useTranslation("contact");
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -38,25 +42,25 @@ const ContactForm: React.FC = () => {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = t('form.errors.nameRequired');
+      newErrors.name = t("form.errors.nameRequired");
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = t('form.errors.nameMinLength');
+      newErrors.name = t("form.errors.nameMinLength");
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = t('form.errors.emailRequired');
+      newErrors.email = t("form.errors.emailRequired");
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = t('form.errors.emailInvalid');
+      newErrors.email = t("form.errors.emailInvalid");
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = t('form.errors.subjectRequired');
+      newErrors.subject = t("form.errors.subjectRequired");
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = t('form.errors.messageRequired');
+      newErrors.message = t("form.errors.messageRequired");
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = t('form.errors.messageMinLength');
+      newErrors.message = t("form.errors.messageMinLength");
     }
 
     setErrors(newErrors);
@@ -82,12 +86,12 @@ const ContactForm: React.FC = () => {
     }
 
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus("idle");
 
     try {
       // Simulate API call - Replace with your actual API endpoint
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      
+
       // TODO: Replace with actual API call
       // const response = await fetch('/api/contact', {
       //   method: 'POST',
@@ -95,28 +99,58 @@ const ContactForm: React.FC = () => {
       //   body: JSON.stringify(formData),
       // });
 
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+
       // Reset success message after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitStatus('error');
-      
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+
       // Reset error message after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleSubmit2 = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const result = await emailjs.sendForm(
+        "service_cqxmhes", // من Dashboard
+        "template_nl6h7db", // من Dashboard
+        e.currentTarget,
+        "MwA9AwXDkizi7n9Qp" // من Dashboard
+      );
+
+      console.log("Message sent:", result.text);
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus("idle"), 5000);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <form className={styles.contactForm} onSubmit={handleSubmit} noValidate>
+    <form className={styles.contactForm} onSubmit={handleSubmit2} noValidate>
       {/* Name Field */}
       <div className={styles.contactForm__field}>
         <label htmlFor="name" className={styles.contactForm__label}>
-          {t('form.name')}
+          {t("form.name")}
           <span className={styles.contactForm__required}>*</span>
         </label>
         <input
@@ -126,12 +160,12 @@ const ContactForm: React.FC = () => {
           value={formData.name}
           onChange={handleChange}
           className={`${styles.contactForm__input} ${
-            errors.name ? styles['contactForm__input--error'] : ''
+            errors.name ? styles["contactForm__input--error"] : ""
           }`}
-          placeholder={t('form.namePlaceholder')}
+          placeholder={t("form.namePlaceholder")}
           disabled={isSubmitting}
           aria-invalid={!!errors.name}
-          aria-describedby={errors.name ? 'name-error' : undefined}
+          aria-describedby={errors.name ? "name-error" : undefined}
         />
         {errors.name && (
           <span id="name-error" className={styles.contactForm__error}>
@@ -143,7 +177,7 @@ const ContactForm: React.FC = () => {
       {/* Email Field */}
       <div className={styles.contactForm__field}>
         <label htmlFor="email" className={styles.contactForm__label}>
-          {t('form.email')}
+          {t("form.email")}
           <span className={styles.contactForm__required}>*</span>
         </label>
         <input
@@ -153,12 +187,12 @@ const ContactForm: React.FC = () => {
           value={formData.email}
           onChange={handleChange}
           className={`${styles.contactForm__input} ${
-            errors.email ? styles['contactForm__input--error'] : ''
+            errors.email ? styles["contactForm__input--error"] : ""
           }`}
-          placeholder={t('form.emailPlaceholder')}
+          placeholder={t("form.emailPlaceholder")}
           disabled={isSubmitting}
           aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? 'email-error' : undefined}
+          aria-describedby={errors.email ? "email-error" : undefined}
         />
         {errors.email && (
           <span id="email-error" className={styles.contactForm__error}>
@@ -170,7 +204,7 @@ const ContactForm: React.FC = () => {
       {/* Subject Field */}
       <div className={styles.contactForm__field}>
         <label htmlFor="subject" className={styles.contactForm__label}>
-          {t('form.subject')}
+          {t("form.subject")}
           <span className={styles.contactForm__required}>*</span>
         </label>
         <input
@@ -180,12 +214,12 @@ const ContactForm: React.FC = () => {
           value={formData.subject}
           onChange={handleChange}
           className={`${styles.contactForm__input} ${
-            errors.subject ? styles['contactForm__input--error'] : ''
+            errors.subject ? styles["contactForm__input--error"] : ""
           }`}
-          placeholder={t('form.subjectPlaceholder')}
+          placeholder={t("form.subjectPlaceholder")}
           disabled={isSubmitting}
           aria-invalid={!!errors.subject}
-          aria-describedby={errors.subject ? 'subject-error' : undefined}
+          aria-describedby={errors.subject ? "subject-error" : undefined}
         />
         {errors.subject && (
           <span id="subject-error" className={styles.contactForm__error}>
@@ -197,7 +231,7 @@ const ContactForm: React.FC = () => {
       {/* Message Field */}
       <div className={styles.contactForm__field}>
         <label htmlFor="message" className={styles.contactForm__label}>
-          {t('form.message')}
+          {t("form.message")}
           <span className={styles.contactForm__required}>*</span>
         </label>
         <textarea
@@ -206,13 +240,13 @@ const ContactForm: React.FC = () => {
           value={formData.message}
           onChange={handleChange}
           className={`${styles.contactForm__textarea} ${
-            errors.message ? styles['contactForm__textarea--error'] : ''
+            errors.message ? styles["contactForm__textarea--error"] : ""
           }`}
-          placeholder={t('form.messagePlaceholder')}
+          placeholder={t("form.messagePlaceholder")}
           rows={6}
           disabled={isSubmitting}
           aria-invalid={!!errors.message}
-          aria-describedby={errors.message ? 'message-error' : undefined}
+          aria-describedby={errors.message ? "message-error" : undefined}
         />
         {errors.message && (
           <span id="message-error" className={styles.contactForm__error}>
@@ -250,37 +284,58 @@ const ContactForm: React.FC = () => {
                 />
               </circle>
             </svg>
-            {t('form.sending')}
+            {t("form.sending")}
           </>
         ) : (
           <>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <line x1="22" y1="2" x2="11" y2="13" />
               <polygon points="22 2 15 22 11 13 2 9 22 2" />
             </svg>
-            {t('form.send')}
+            {t("form.send")}
           </>
         )}
       </button>
 
       {/* Status Messages */}
-      {submitStatus === 'success' && (
+      {submitStatus === "success" && (
         <div className={styles.contactForm__success}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <polyline points="20 6 9 17 4 12" />
           </svg>
-          {t('form.success')}
+          {t("form.success")}
         </div>
       )}
 
-      {submitStatus === 'error' && (
+      {submitStatus === "error" && (
         <div className={styles.contactForm__errorMessage}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <circle cx="12" cy="12" r="10" />
             <line x1="12" y1="8" x2="12" y2="12" />
             <line x1="12" y1="16" x2="12.01" y2="16" />
           </svg>
-          {t('form.error')}
+          {t("form.error")}
         </div>
       )}
     </form>
