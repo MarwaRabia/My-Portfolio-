@@ -78,43 +78,6 @@ const ContactForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitStatus("idle");
-
-    try {
-      // Simulate API call - Replace with your actual API endpoint
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData),
-      // });
-
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitStatus("idle"), 5000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setSubmitStatus("error");
-
-      // Reset error message after 5 seconds
-      setTimeout(() => setSubmitStatus("idle"), 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const handleSubmit2 = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
