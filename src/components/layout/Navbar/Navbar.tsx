@@ -137,7 +137,7 @@ const Navbar: React.FC = () => {
         <div className={styles.navbar__actions}>
           {/* Resume Button - Desktop Only */}
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1qWIClBzBcxUyOKixirlTMs5T7L8nGZUB/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.navbar__resume}
@@ -214,7 +214,7 @@ const Navbar: React.FC = () => {
 
             {/* Resume Button - Mobile */}
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1qWIClBzBcxUyOKixirlTMs5T7L8nGZUB/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.navbar__mobileResume}
