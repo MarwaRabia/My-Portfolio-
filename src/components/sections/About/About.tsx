@@ -7,6 +7,31 @@ import styles from "./About.module.scss";
 const About: React.FC = () => {
   const { t } = useTranslation("about");
 
+// const handleOpenCV = () => {
+//   const link = document.createElement("a");
+//   link.href = "https://drive.google.com/file/d/1qWIClBzBcxUyOKixirlTMs5T7L8nGZUB/view?usp=sharing"; // رابط الملف
+//   link.target = "_blank"; // يفتح في تبويب جديد
+//   link.rel = "noopener noreferrer"; // للأمان
+//   link.click();
+// };
+
+
+
+const handleDownloadCV = () => {
+  const link = document.createElement("a");
+  link.href = "https://drive.google.com/uc?export=download&id=1qWIClBzBcxUyOKixirlTMs5T7L8nGZUB"; // رابط مباشر للتحميل
+  link.download = "MarwaRabiaCV.pdf"; 
+  link.click();
+};
+
+  const handleNavClick = (href: string) => {
+    // Smooth scroll to section
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className={styles.about} id="about">
       <div className={styles.about__container}>
@@ -35,15 +60,21 @@ const About: React.FC = () => {
 
             <p className={styles.about__paragraph}>{t("paragraphs.p1")}</p>
             <p className={styles.about__paragraph}>{t("paragraphs.p2")}</p>
-            <p className={styles.about__paragraph}>{t("paragraphs.p3")}</p>
 
             {/* CTA Buttons */}
             <div className={styles.about__cta}>
-              <button className={`${styles.btn} ${styles["btn--primary"]}`}>
+              <button className={`${styles.btn} ${styles["btn--primary"]}`}
+              onClick={handleDownloadCV}>
                 <Icon name="download" />
                 <span>{t("cta.downloadCV")}</span>
               </button>
-              <button className={`${styles.btn} ${styles["btn--secondary"]}`}>
+              <button
+                className={`${styles.btn} ${styles["btn--secondary"]}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#contact");
+                }}
+              >
                 <Icon name="mail" />
                 <span>{t("cta.contact")}</span>
               </button>
@@ -52,7 +83,7 @@ const About: React.FC = () => {
         </div>
 
         {/* Stats */}
-        <div className={styles.about__stats}>
+        {/* <div className={styles.about__stats}>
           {aboutConfig.stats.map((stat, index) => (
             <div key={index} className={styles.stat}>
               <div className={styles.stat__icon}>
@@ -66,10 +97,10 @@ const About: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* What I Do */}
-        <div className={styles.about__interests}>
+        {/* <div className={styles.about__interests}>
           <h3 className={styles.about__interestsTitle}>
             {t("interests.title")}
           </h3>
@@ -94,7 +125,7 @@ const About: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

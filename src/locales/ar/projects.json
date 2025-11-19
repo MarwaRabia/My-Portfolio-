@@ -7,7 +7,7 @@
     "fullstack": "Full Stack",
     "react": "React",
     "frontend": "واجهات أمامية",
-    "htmlCss": "HTML/CSS"
+    "early-works": "رحلتي في التعلم"
   },
   "buttons": {
     "viewLive": "عرض مباشر",
@@ -34,18 +34,34 @@
   },
   "techbooksStore": {
     "title": "متجر الكتب التقنية",
-    "description": "متجر كتب حديث مبني بـ React يتميز بالبحث الديناميكي باستخدام Google Books API، عربة التسوق، المصادقة عبر Google OAuth، ورسوم متحركة سلسة مع تصميم متجاوب."
+    "description": "متجر كتب تقنية عصري مبني بـ React بحث فوري، سلة مشتريات، تسجيل دخول جوجل (Firebase)، تصميم متجاوب، وأداء فائق السرعة باستخدام LocalStorage. تجربة تسوق ممتعة وسلسة من البداية للنهاية."
   },
   "quizme": {
     "title": "اختبرني - تحدي المعرفة الإسلامية",
     "description": "تطبيق ويب تفاعلي عربي لاختبار المعرفة بالقرآن والأنبياء والصحابة من خلال بطاقات قلابة. يحتوي على أربع فئات رئيسية مع رسوم متحركة جميلة ودعم كامل للـ RTL."
   },
+  "adviceGenerator": {
+    "titlee": "مولّد النصائح العشوائية",
+    "description": "تطبيق أنيق ومتجاوب يعرض نصيحة عشوائية جديدة عند كل ضغطة على زر النرد. يستخدم Advice Slip API مع تصميم متجاوب بالكامل."
+  },
   "htmlTemplate03": {
-    "title": "صفحة هبوط متجاوبة حديثة",
-    "description": "صفحة هبوط متجاوبة بالكامل مبنية بـ HTML و CSS تتميز بأقسام متحركة وتخطيطات مرنة باستخدام CSS Grid و Flexbox. تشمل شهادات، خدمات، مهارات، أحداث والمزيد."
+    "titlee": "صفحة هبوط متجاوبة حديثة",
+    "description": "landing page متجاوبة بالكامل مبنية بـ HTML و CSS تتميز بأقسام متحركة وتخطيطات مرنة باستخدام CSS Grid و Flexbox. تشمل شهادات، خدمات، مهارات، أحداث والمزيد."
   },
   "casperTemplate": {
-    "title": "قالب Casper الإبداعي",
+    "titlee": "قالب Casper الإبداعي",
     "description": "قالب HTML/CSS متجاوب حديث مع تصميم دقيق البكسل. يتميز بواجهة نظيفة، توافق عبر المتصفحات، وكود خفيف بدون مكتبات غير ضرورية."
+  },
+  "recipePage": {
+    "title": "Recipe Page",
+    "description": "تحدٍ  من Frontend Mentor: صفحة وصفة طعام مُنفذة بـ HTML5 وCSS3 فقط. تركيز كامل على الـ Typography الجميلة، الـ Spacing الدقيق، التصميم المتجاوب (Mobile-First)، الـ Custom Properties، والـ Hover states الراقية."
+  },
+  "ageCalculator": {
+    "title": "Age Calculator",
+    "description": "تطبيق أنيق ومتجاوب لحساب العمر بدقة متناهية (سنوات/أشهر/أيام). يحتوي على نظام تحقق ذكي وفوري لكل الحقول. باستخدام Vanilla JavaScript وHTML/CSS فقط."
+  },
+  "perfumeCard": {
+    "title": "Product Card",
+    "description": "بطاقة عرض منتج فاخرة ومتجاوبة لعطر راقي . تتضمن تبديل الصورة تلقائيًا حسب الجهاز، وتصميم Mobile-First مُنفذ بـ HTML5 وCSS Flexbox فقط."
   }
 }

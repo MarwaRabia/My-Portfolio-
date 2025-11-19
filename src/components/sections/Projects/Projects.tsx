@@ -1,16 +1,25 @@
 // src/components/sections/Projects/Projects.tsx
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { projects, projectCategories, getProjectsByCategory } from './projectsData';
-import ProjectCard from './ProjectCard';
-import styles from './Projects.module.scss';
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import {
+  projects,
+  projectCategories,
+  getProjectsByCategory,
+} from "./projectsData";
+import ProjectCard from "./ProjectCard";
+import styles from "./Projects.module.scss";
+import type { ProjectCategory } from "./projectsData";
 
 const Projects: React.FC = () => {
-  const { t } = useTranslation('projects');
-  const [activeFilter, setActiveFilter] = useState<string>('all');
+  const { t } = useTranslation("projects");
+
+  // state types properly typed
+  const [activeFilter, setActiveFilter] = useState<"all" | ProjectCategory>(
+    "all"
+  );
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
-  const handleFilterChange = (category: string) => {
+  const handleFilterChange = (category: "all" | ProjectCategory) => {
     setActiveFilter(category);
     setFilteredProjects(getProjectsByCategory(category));
   };
@@ -20,9 +29,9 @@ const Projects: React.FC = () => {
       <div className={styles.projects__container}>
         {/* Section Header */}
         <div className={styles.projects__header}>
-          <p className={styles.projects__subtitle}>{t('subtitle')}</p>
-          <h2 className={styles.projects__title}>{t('title')}</h2>
-          <p className={styles.projects__description}>{t('description')}</p>
+          <p className={styles.projects__subtitle}>{t("subtitle")}</p>
+          <h2 className={styles.projects__title}>{t("title")}</h2>
+          <p className={styles.projects__description}>{t("description")}</p>
         </div>
 
         {/* Filter Buttons */}
@@ -31,9 +40,13 @@ const Projects: React.FC = () => {
             <button
               key={category.key}
               className={`${styles.projects__filter} ${
-                activeFilter === category.key ? styles['projects__filter--active'] : ''
+                activeFilter === category.key
+                  ? styles["projects__filter--active"]
+                  : ""
               }`}
-              onClick={() => handleFilterChange(category.key)}
+              onClick={() =>
+                handleFilterChange(category.key as "all" | ProjectCategory)
+              }
             >
               {t(`filters.${category.labelKey}`)}
             </button>
@@ -59,22 +72,11 @@ const Projects: React.FC = () => {
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.35-4.35" />
               </svg>
-              <h3>{t('empty.title')}</h3>
-              <p>{t('empty.description')}</p>
+              <h3>{t("empty.title")}</h3>
+              <p>{t("empty.description")}</p>
             </div>
           )}
         </div>
-
-        {/* View All Button (Optional) */}
-        {/* <div className={styles.projects__cta}>
-          <button className={styles.projects__button}>
-            {t('buttons.viewAll')}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </button>
-        </div> */}
       </div>
     </section>
   );

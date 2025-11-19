@@ -1,5 +1,3 @@
-// src/components/sections/About/aboutData.ts
-
 export interface Stat {
   value: string;
   labelKey: string;
@@ -73,5 +71,6 @@ export const interests: Interest[] = [
 export const aboutConfig: AboutConfig = {
   stats,
   interests,
-  imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=600&fit=crop',
+  // imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=600&fit=crop',
+  imageUrl: 'https://images.unsplash.com/photo-1585076641399-5c06d1b3365f?w=800&h=600&fit=crop',
 };

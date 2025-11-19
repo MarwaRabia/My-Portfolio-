@@ -1,19 +1,18 @@
-// src/components/sections/Hero/Hero.tsx
-import React, { type JSX } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useTypingEffect } from '../../../hooks/useTypingEffect';
-import { heroConfig, generateParticles } from './heroData';
-import styles from './Hero.module.scss';
+import React, { type JSX } from "react";
+import { useTranslation } from "react-i18next";
+import { useTypingEffect } from "../../../hooks/useTypingEffect";
+import { heroConfig, generateParticles } from "./heroData";
+import styles from "./Hero.module.scss";
 
 const Hero: React.FC = () => {
-  const { t } = useTranslation('hero');
+  const { t } = useTranslation("hero");
 
   // Get roles from translation
   const roles = [
-    t('roles.frontend'),
-    t('roles.react'),
-    t('roles.uiux'),
-    t('roles.problem'),
+    t("roles.frontend"),
+    t("roles.react"),
+    // t('roles.uiux'),
+    // t('roles.problem'),
   ];
 
   // Typing effect
@@ -26,12 +25,16 @@ const Hero: React.FC = () => {
   const particles = generateParticles(heroConfig.particlesCount);
 
   // Smooth scroll handler
-  const handleScrollToProjects = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth',
-    });
+  const handleScrollToProjects = (href: string) => {
+     const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
+
+ 
+
+
 
   return (
     <section className={styles.hero}>
@@ -60,35 +63,36 @@ const Hero: React.FC = () => {
       <div className={styles.hero__content}>
         <div className={styles.hero__text}>
           {/* Greeting */}
-          <p className={styles.hero__greeting}>{t('greeting')}</p>
+          <p className={styles.hero__greeting}>{t("greeting")}</p>
 
           {/* Name */}
           <h1 className={styles.hero__name}>
-            <span className={styles['hero__name-highlight']}>
-              {t('name')}
-            </span>
+            <span className={styles["hero__name-highlight"]}>{t("name")}</span>
           </h1>
 
           {/* Typing Role */}
           <div className={styles.hero__role}>
-            <span className={styles['hero__role-text']}>{typedText}</span>
+            <span className={styles["hero__role-text"]}>{typedText}</span>
             <span className={styles.hero__cursor}>|</span>
           </div>
 
           {/* Description */}
           <p className={styles.hero__description}>
-            {t('description')}
+            {t("description")}
             <br />
-            {t('descriptionAlt')}
+            {t("descriptionAlt")}
           </p>
 
           {/* CTA Buttons */}
           <div className={styles.hero__cta}>
             <button
-              className={`${styles.btn} ${styles['btn--primary']}`}
-              onClick={handleScrollToProjects}
+              className={`${styles.btn} ${styles["btn--primary"]}`}
+              onClick={(e) => {
+                  e.preventDefault();
+                  handleScrollToProjects("#projects");
+                }}
             >
-              <span>{t('cta.viewWork')}</span>
+              <span>{t("cta.viewWork")}</span>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path
                   d="M7 10L10 13L13 10"
@@ -105,17 +109,6 @@ const Hero: React.FC = () => {
               </svg>
             </button>
 
-            <button className={`${styles.btn} ${styles['btn--secondary']}`}>
-              <span>{t('cta.contact')}</span>
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M3 10L17 10M17 10L11 4M17 10L11 16"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
           </div>
 
           {/* Social Links */}
@@ -124,7 +117,7 @@ const Hero: React.FC = () => {
               <a
                 key={link.name}
                 href={link.url}
-                className={styles['hero__social-link']}
+                className={styles["hero__social-link"]}
                 aria-label={link.ariaLabel}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -136,21 +129,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className={styles.hero__scroll} onClick={handleScrollToProjects}>
-        <div className={styles['hero__scroll-indicator']}>
-          <div className={styles['hero__scroll-wheel']}></div>
-        </div>
-        <p className={styles['hero__scroll-text']}>{t('scroll')}</p>
-      </div>
-
-      {/* Decorative Elements */}
-      <div
-        className={`${styles.hero__decoration} ${styles['hero__decoration--1']}`}
-      ></div>
-      <div
-        className={`${styles.hero__decoration} ${styles['hero__decoration--2']}`}
-      ></div>
     </section>
   );
 };

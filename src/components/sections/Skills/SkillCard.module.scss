@@ -13,11 +13,12 @@
   height: 100%;
   position: relative;
   transition: all $transition-base;
+  
   cursor: pointer;
 
   // Gradient overlay effect using custom property
   &::before {
-    content: '';
+    content: "";
     @include absolute-cover;
     background: radial-gradient(
       circle at top,
@@ -33,14 +34,20 @@
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     border-color: var(--skill-color, #{$primary-color});
+    -webkit-transform: translateY(-8px);
+    -moz-transform: translateY(-8px);
+    -ms-transform: translateY(-8px);
+    -o-transform: translateY(-8px);
 
     &::before {
       opacity: 0.15;
     }
 
     .skillCard__icon {
-      transform: scale(1.1) rotateY(180deg);
+      // transform: scale(1.1) rotateY(100deg);
       color: var(--skill-color, #{$primary-color});
+      
+
     }
 
     .skillCard__name {

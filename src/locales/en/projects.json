@@ -7,7 +7,7 @@
     "fullstack": "Full Stack",
     "react": "React",
     "frontend": "Frontend",
-    "htmlCss": "HTML/CSS"
+    "early-works": "Early Works"
   },
   "buttons": {
     "viewLive": "View Live",
@@ -40,6 +40,10 @@
     "title": "QuizMe - Islamic Knowledge Challenge",
     "description": "Interactive Arabic quiz app about Quran, Prophets, and Companions with flip cards, four categories, and beautiful RTL animations."
   },
+  "adviceGenerator": {
+    "title": "Advice Generator App",
+    "description": "A clean and responsive  app that delivers random pieces of advice using the Advice Slip API. Features instant advice generation on dice click, hover effects, mobile-first responsive design, and clever cache-busting technique for fresh data on every request."
+  },
   "htmlTemplate03": {
     "title": "Modern Responsive Landing Page",
     "description": "Fully responsive landing page with CSS Grid and Flexbox, featuring animated sections, testimonials, services, and skills showcase."
@@ -47,5 +51,18 @@
   "casperTemplate": {
     "title": "Casper Creative Template",
     "description": "Pixel-perfect HTML/CSS template with clean modern UI, cross-browser compatibility, and lightweight optimized code."
+  },
+
+  "recipePage": {
+    "title": "Recipe Page",
+    "description": "A clean, elegant, and fully responsive recipe page challenge from Frontend Mentor. Built with semantic HTML5 and modern CSS, featuring beautiful typography, proper spacing, mobile-first responsive layout, custom properties, and subtle hover states."
+  },
+  "ageCalculator": {
+    "title": "Age Calculator ",
+    "description": "An elegant, fully responsive age calculator that computes exact age in years, months, and days. Features comprehensive real-time form validation (empty fields, invalid/inconsistent dates, future dates) built with vanilla JavaScript, HTML5, and CSS3."
+  },
+  "perfumeCard": {
+    "title": "Product Card",
+    "description": "A beautifully crafted, responsive product preview card for a luxury perfume. Responsive image switching (mobile/desktop), elegant spacing, hover states on the CTA button using only HTML5 and CSS Flexbox."
   }
 }

@@ -1,6 +1,5 @@
-// src/components/sections/Hero/Hero.module.scss
-@import '../../../styles/abstracts/variables';
-@import '../../../styles/abstracts/mixins';
+@import "../../../styles/abstracts/variables";
+@import "../../../styles/abstracts/mixins";
 
 .hero {
   position: relative;
@@ -13,7 +12,7 @@
   // ============================================
   // Background
   // ============================================
-  
+
   &__background {
     @include absolute-cover;
     z-index: 0;
@@ -117,7 +116,7 @@
     @include button-base;
 
     &::before {
-      content: '';
+      content: "";
       @include absolute-cover;
       background: linear-gradient(
         135deg,
@@ -387,7 +386,7 @@
   }
 
   // RTL Support
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     .btn--secondary:hover svg {
       transform: translateX(-5px);
     }

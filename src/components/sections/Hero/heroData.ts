@@ -1,3 +1,4 @@
+// src/components/sections/Hero/heroData.ts
 
 export interface SocialLink {
   name: string;
@@ -16,23 +17,24 @@ export interface HeroConfig {
   };
 }
 
+
 // Social Links - Update these with your real links
 export const socialLinks: SocialLink[] = [
   {
     name: 'github',
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/MarwaRabia',
     icon: 'github',
     ariaLabel: 'GitHub Profile',
   },
   {
     name: 'linkedin',
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'https://www.linkedin.com/in/marwarabia/',
     icon: 'linkedin',
     ariaLabel: 'LinkedIn Profile',
   },
   {
     name: 'twitter',
-    url: 'https://twitter.com/yourusername',
+    url: '',
     icon: 'twitter',
     ariaLabel: 'Twitter Profile',
   },
@@ -41,7 +43,7 @@ export const socialLinks: SocialLink[] = [
 // Configuration
 export const heroConfig: HeroConfig = {
   socialLinks,
-  particlesCount: 50,
+  particlesCount: 0,
   typingConfig: {
     typingSpeed: 150,
     deletingSpeed: 50,

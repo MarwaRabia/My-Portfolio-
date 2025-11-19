@@ -1,4 +1,3 @@
-// src/hooks/useTypingEffect.ts
 import { useState, useEffect } from 'react';
 
 interface UseTypingEffectOptions {
