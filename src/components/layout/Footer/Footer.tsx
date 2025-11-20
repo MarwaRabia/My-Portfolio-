@@ -26,7 +26,6 @@ const quickLinks: QuickLink[] = [
 const Footer: React.FC = () => {
   const { t } = useTranslation("footer");
   const currentYear = new Date().getFullYear();
-  console.log("Current year", currentYear);
 
   const socialLinks: SocialLink[] = [
     {

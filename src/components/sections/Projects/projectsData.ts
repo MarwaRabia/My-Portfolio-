@@ -25,7 +25,7 @@ export const projects: Project[] = [
     descriptionKey: "taskManagement.description",
     image:
       // "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-      "https://raw.githubusercontent.com/MarwaRabia/Task-management-system/main/src/assets/login.png",
+      "public/images/login.png",
     technologies: [
       "React",
       "Redux",
@@ -48,8 +48,7 @@ export const projects: Project[] = [
     id: "techbooks-store",
     titleKey: "techbooksStore.title",
     descriptionKey: "techbooksStore.description",
-    image:
-      "https://github.com/MarwaRabia/Tech-Book-Store/raw/main/src/assets/home.jpg",
+    image: "public/images/tech.jpg",
     technologies: [
       "React",
       "Firebase",
@@ -73,7 +72,7 @@ export const projects: Project[] = [
     descriptionKey: "quizme.description",
     image:
       // "https://raw.githubusercontent.com/MarwaRabia/QuizMe/refs/heads/main/images/image_1.png",
-      "https://raw.githubusercontent.com/MarwaRabia/QuizMe/main/images/image_1.png",
+      "public/images/image_1.png",
     technologies: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "RTL"],
     category: ["early-works"],
     liveUrl: "https://marwarabia.github.io/QuizMe/",
@@ -88,8 +87,7 @@ export const projects: Project[] = [
     id: "adviceGenerator",
     titleKey: "adviceGenerator.title",
     descriptionKey: "adviceGenerator.description",
-    image:
-      "https://raw.githubusercontent.com/MarwaRabia/Advice-generator-app/main/preview.jpg",
+    image: "public/images/preview.jpg",
     technologies: [
       "HTML5",
       "CSS3",
@@ -109,8 +107,7 @@ export const projects: Project[] = [
     id: "html-template-03",
     titleKey: "htmlTemplate03.title",
     descriptionKey: "htmlTemplate03.description",
-    image:
-      "https://raw.githubusercontent.com/MarwaRabia/template-3-HTML-CSS-/master/images/articles.png",
+    image: "public/images/articles.png",
     technologies: [
       "HTML5",
       "CSS3",
@@ -132,8 +129,7 @@ export const projects: Project[] = [
     id: "casper-template",
     titleKey: "casperTemplate.title",
     descriptionKey: "casperTemplate.description",
-    image:
-      "https://raw.githubusercontent.com/MarwaRabia/Kasper-Creative-PSD-Template/main/images/screenshots/landing.jpg",
+    image: "public/images/landing.jpg",
     technologies: [
       "HTML5",
       "CSS3",
@@ -153,8 +149,7 @@ export const projects: Project[] = [
     id: "recipePage",
     titleKey: "recipePage.title",
     descriptionKey: "recipePage.description",
-    image:
-      "https://raw.githubusercontent.com/MarwaRabia/Recipe-page/master/preview.jpg",
+    image: "public/images/menu.jpg",
     technologies: [
       "HTML5",
       "CSS3",
@@ -174,8 +169,7 @@ export const projects: Project[] = [
     id: "ageCalculator",
     titleKey: "ageCalculator.title",
     descriptionKey: "ageCalculator.description",
-    image:
-      "https://raw.githubusercontent.com/MarwaRabia/Age-calculator-app/master/preview.jpg",
+    image: "public/images/age.jpg",
     technologies: [
       "HTML5",
       "CSS3",
@@ -195,8 +189,7 @@ export const projects: Project[] = [
     id: "perfumeCard",
     titleKey: "perfumeCard.title",
     descriptionKey: "perfumeCard.description",
-    image:
-      "https://raw.githubusercontent.com/MarwaRabia/Perfume-preview-card/main/design/desktop-preview.jpg",
+    image: "public/images/perfume.jpg",
     technologies: [
       "HTML5",
       "CSS3",
