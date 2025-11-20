@@ -25,7 +25,7 @@ export const projects: Project[] = [
     descriptionKey: "taskManagement.description",
     image:
       // "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-      "public/images/login.png",
+      "/images/login.png",
     technologies: [
       "React",
       "Redux",
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     id: "techbooks-store",
     titleKey: "techbooksStore.title",
     descriptionKey: "techbooksStore.description",
-    image: "public/images/tech.jpg",
+    image: "/images/tech.jpg",
     technologies: [
       "React",
       "Firebase",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     descriptionKey: "quizme.description",
     image:
       // "https://raw.githubusercontent.com/MarwaRabia/QuizMe/refs/heads/main/images/image_1.png",
-      "public/images/image_1.png",
+      "/images/image_1.png",
     technologies: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "RTL"],
     category: ["early-works"],
     liveUrl: "https://marwarabia.github.io/QuizMe/",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     id: "adviceGenerator",
     titleKey: "adviceGenerator.title",
     descriptionKey: "adviceGenerator.description",
-    image: "public/images/preview.jpg",
+    image: "/images/preview.jpg",
     technologies: [
       "HTML5",
       "CSS3",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     id: "html-template-03",
     titleKey: "htmlTemplate03.title",
     descriptionKey: "htmlTemplate03.description",
-    image: "public/images/articles.png",
+    image: "/images/articles.png",
     technologies: [
       "HTML5",
       "CSS3",
@@ -129,7 +129,7 @@ export const projects: Project[] = [
     id: "casper-template",
     titleKey: "casperTemplate.title",
     descriptionKey: "casperTemplate.description",
-    image: "public/images/landing.jpg",
+    image: "/images/landing.jpg",
     technologies: [
       "HTML5",
       "CSS3",
@@ -149,7 +149,7 @@ export const projects: Project[] = [
     id: "recipePage",
     titleKey: "recipePage.title",
     descriptionKey: "recipePage.description",
-    image: "public/images/menu.jpg",
+    image: "/images/menu.jpg",
     technologies: [
       "HTML5",
       "CSS3",
@@ -169,7 +169,7 @@ export const projects: Project[] = [
     id: "ageCalculator",
     titleKey: "ageCalculator.title",
     descriptionKey: "ageCalculator.description",
-    image: "public/images/age.jpg",
+    image: "/images/age.jpg",
     technologies: [
       "HTML5",
       "CSS3",
@@ -189,7 +189,7 @@ export const projects: Project[] = [
     id: "perfumeCard",
     titleKey: "perfumeCard.title",
     descriptionKey: "perfumeCard.description",
-    image: "public/images/perfume.jpg",
+    image: "/images/perfume.jpg",
     technologies: [
       "HTML5",
       "CSS3",
